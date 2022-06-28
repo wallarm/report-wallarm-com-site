@@ -1,0 +1,10 @@
+@media (min-width: 1601px){
+    #chart{
+        zoom: 1.15;
+    }
+}
+@media (min-width: 1801px){
+    #chart{
+        zoom: 1.35;
+    }
+}

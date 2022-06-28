@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallarm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css?21.06">
+    <link rel="stylesheet" href="assets/css/media.css">
+</head>
+<body>
+    <div id="screen_overlay"></div>
+    <div id="preloader">
+        <svg width="47" height="27" viewBox="0 0 47 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 8.19663L19.3101 0L19.3101 11.6603L37.1449 4.08982L37.1449 13.445L46.6667 9.40322V16.042L37.1449 20.0838L37.1449 16.5376L19.2915 24.1159V18.6547L0 26.8435V8.19663Z" fill="#FC7303"/>
+        </svg>       
+    </div>
+    <div id="wrapper">
+        <div id="nav">
+            <div>
+                <a href="https://www.wallarm.com/" id="logo">
+                    <img src="assets/img/logo.png" alt="">
+                </a>
+                <div id="page_info">
+                    <h2>Data Breaches Timeline</h2>
+                    <p>About 600 data breach incidents from the period of 2012-2022. We are now adding companies' locations, sizes, and industries. </p>
+                </div>
+            </div>
+            <a href="https://www.wallarm.com/request-demo?utm_source=databreache" id="nav_btn">Protect your business</a>
+        </div>
+        <div id="editor"></div>
+        <div id="content">
+            <div id="content_screen_wrap">
+                <div id="company_info_modal">
+                    <div id="company_info_modal-info">
+                        <img id="company_info_modal-thumb" src="" alt="">
+                        <span id="company_info_modal-title"></span>
+                        <div id="company_info_modal-description"></div>
+                    </div>
+                    <div id="company_info_modal-close">
+                        <img src="assets/img/close_modal.svg" alt="">
+                    </div>
+                </div>
+                <div id="content_header">
+                    <div id="content_info">
+                        <div>
+                            <label for="">accounts hacked</label>
+                            <span id="accounts_hacked"></span>
+                        </div>
+                        <div>
+                            <label for="">companies hacked</label>
+                            <span id="companies_hacked"></span>
+                        </div>
+                        <div>
+                            <label for="">industries</label>
+                            <span id="industries"></span>
+                        </div>
+                    </div>
+                    <div id="content_toggles">
+                        <div>
+                            <label for="">Group by:</label>
+                            <div id="group_toggles">
+                                <div class="active" onclick="sortChart('Industries')">Industries</div>
+                                <div onclick="sortChart('Companies')">Companies</div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="">Industry affected:</label>
+                            <select name="" id="industry_select">
+                            </select>
+                        </div>
+                        <div>
+                            <label for="">Data stolen:</label>
+                            <select name="" id="data_stolen">
+                                <option value="any">Any</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button id="get_report">Get Report</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="content_chart">
+                    <div id="chart"></div>
+                    <div id="chat_overlay"></div>
+                    <div id="slider">
+                        <div id="slide_element" style="width: calc(100% / 16);">
+                            <img class="slider_resize" src="assets/img/vertical_line.png" alt="">
+                            <img src="assets/img/arrow_right.png" alt="">
+                            <img class="slider_resize" src="assets/img/vertical_line.png" alt="">
+                        </div>
+                        <div id="slide_element_resize_minus"></div>
+                        <div id="slide_element_resize_plus"></div>
+                        <div id="slide_zone"></div>
+                        <div id="year_filter_elements">
+                            <span class="active" onclick="filterChart(2008)">2008</span>
+                            <span onclick="filterChart(2009)">2009</span>
+                            <span onclick="filterChart(2010)">2010</span>
+                            <span onclick="filterChart(2011)">2011</span>
+                            <span onclick="filterChart(2012)">2012</span>
+                            <span onclick="filterChart(2013)">2013</span>
+                            <span onclick="filterChart(2014)">2014</span>
+                            <span onclick="filterChart(2015)">2015</span>
+                            <span onclick="filterChart(2016)">2016</span>
+                            <span onclick="filterChart(2017)">2017</span>
+                            <span onclick="filterChart(2018)">2018</span>
+                            <span onclick="filterChart(2019)">2019</span>
+                            <span onclick="filterChart(2020)">2020</span>
+                            <span onclick="filterChart(2021)">2021</span>
+                            <span onclick="filterChart(2022)">2022</span>
+                            <span>2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="hubspot-form" class="hidden">
+        <div class="hubspot-popup-layout"></div>
+        <div class="hubspot-popup-content-container">
+            <div class="hubspot-popup-content-close"></div>
+            <div class="hubspot-popup-content-title">Get Report</div>
+            <div class="hubspot-popup-form-container">
+                <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/v2.js"></script>
+                <script>
+                    hbspt.forms.create({
+                        region: "na1",
+                        portalId: "3989912",
+                        formId: "9512857e-fc7b-4b9b-b607-b5a7930fba24"
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/all.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            "use strict";
+
+            var HIDE_CLASS_NAME = 'hidden';
+            var layoutNode = document.querySelector('#hubspot-form .hubspot-popup-layout');
+            var closeButtonNode = document.querySelector('#hubspot-form .hubspot-popup-content-close');
+            var getReportButtonNode = document.querySelector('#get_report');
+
+            layoutNode.addEventListener('click', closePopup);
+            closeButtonNode.addEventListener('click', closePopup);
+            getReportButtonNode.addEventListener('click', openPopup);
+
+            window.addEventListener("message", function (event) {
+                if (!eventDataExist(event) || !isOnSubmitFormEvent(event)) {
+                    return;
+                }
+
+                closePopup();
+                makeReport();
+                offHubspotAuth();
+            });
+
+            function closePopup() {
+                document.querySelector('#hubspot-form').classList.add(HIDE_CLASS_NAME);
+            }
+
+            function openPopup() {
+                document.querySelector('#hubspot-form').classList.remove(HIDE_CLASS_NAME);
+            }
+
+            function eventDataExist(event) {
+                return event && event.data && event.data.type && event.data.eventName && event.data.id;
+            }
+
+            function isOnSubmitFormEvent(event) {
+                return event.data.type === "hsFormCallback"
+                    && event.data.eventName === "onFormSubmitted" && event.data.data;
+            }
+
+            function makeReport() {
+                let chart = document.querySelector("#chart"),
+                    screen_overlay = document.querySelector("#screen_overlay"),
+                    content_toggles = document.querySelector("#content_toggles");
+
+                screen_overlay.style.display = "block";
+                screen_overlay.style.transition = "0s";
+                screen_overlay.style.opacity = '1';
+
+                chart.style.zoom = '1';
+                chart.classList.add("show_data");
+
+                content_toggles.style.zoom = '1';
+
+                chart.classList.add("screen");
+
+                document.querySelector("#get_report").style.display = "none";
+
+                html2canvas(document.querySelector("#content_screen_wrap"), {
+                    allowTaint: true
+                }).then((canvas) => {
+                    screen_overlay.style.transition = "";
+                    screen_overlay.style.opacity = '0';
+
+                    chart.classList.remove("show_data");
+
+                    setTimeout(() => {
+                        screen_overlay.style.display = "none"
+                    }, 500);
+
+                    document.querySelector("#get_report").style.display = "";
+
+                    chart.style.zoom = '';
+                    content_toggles.style.zoom = '';
+                    chart.classList.remove("screen");
+
+                    downloadReport(canvas);
+                });
+            }
+
+            function downloadReport(canvas) {
+                let a = document.createElement("a");
+                a.download = "wallarm.png";
+                a.href = canvas.toDataURL("image/png");
+                a.click();
+            }
+
+            function offHubspotAuth() {
+                getReportButtonNode.removeEventListener('click', openPopup);
+                getReportButtonNode.addEventListener('click', makeReport);
+            }
+        })();
+    </script>
+</body>
+</html>

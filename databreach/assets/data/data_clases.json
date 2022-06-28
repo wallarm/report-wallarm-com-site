@@ -1,0 +1,47 @@
+[
+    {
+        "Name": "Email addresses"
+    },
+    {
+        "Name": "Passwords"
+    },
+    {
+        "Name": "Device information"
+    },
+    {
+        "Name": "IP addresses"
+    },
+    {
+        "Name": "Usernames"
+    },
+    {
+        "Name": "Dates of birth"
+    },
+    {
+        "Name": "Genders"
+    },
+    {
+        "Name": "Geographic locations"
+    },
+    {
+        "Name": "Names"
+    },
+    {
+        "Name": "Employers"
+    },
+    {
+        "Name": "Job titles"
+    },
+    {
+        "Name": "Phone numbers"
+    },
+    {
+        "Name": "Physical addresses"
+    },
+    {
+        "Name": "Social media profiles"
+    },
+    {
+        "Name": "Income levels"
+    }
+]
