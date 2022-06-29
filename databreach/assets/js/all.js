@@ -490,10 +490,10 @@ readTextFile("assets/data/data_3.json", function (text) {
 
                 chart.innerHTML += "<div class='bubble' style='left:" + element_x + "px; top: " + element_y + "px; width:" + (radius * 2) + "px; height: " + (radius * 2) + "px; padding: " + (radius * 2 / 10) + "px; font-size: " + (radius * 2 / 10) + "px; transform: translate(-" + radius + "px, -" + radius + "px); outline-color: " + selected_outline + "; background-color: " + selected_background + "'>" +
                     "<div class='data_count'>" + randomize_data + "</div>" +
-                    "<div><span><span class='acc_hacked'>( " + acc_hacked + " )</span>" + newFiltrate[i]['Title'] + "</span>" +
-                    "<p>A few words about the industry. Two lines max.</p></div>" +
+                    "<div class='bubble_title'><span><span class='acc_hacked'>( " + acc_hacked + " )</span>" + newFiltrate[i]['Title'] + "</span></div>" +
                     "<button onclick='check_industry(\"" + newFiltrate[i]['Title'] + "\")' class='bubble_btn'>View report</button>" +
                     "</div>";
+
             }
         }, 300);
     }

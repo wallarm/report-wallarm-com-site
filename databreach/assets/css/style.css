@@ -58,6 +58,9 @@ body{
         transform: rotate(365deg);
     }
 }
+#mobile_wrapper{
+    display: none !important;
+}
 #wrapper{
     display: flex;
     height: 100vh;
@@ -211,10 +214,12 @@ body{
     padding-right: 0;
     z-index: 99999;
 }
+#content_header{
+    zoom: 0.9;
+}
 #content_toggles{
     display: flex;
     gap: 16px;
-    zoom: 0.9;
 }
 #content_toggles #group_toggles{
     display: block;
@@ -485,6 +490,7 @@ body{
     border: none;
     animation: fadeOut 1s forwards;
     cursor: pointer;
+    margin-top: 10%;
 }
 #chart .bubble .data_count{
     display: none;
@@ -524,6 +530,9 @@ body{
 }
 #chart .bubble:hover:nth-child(3n){
     /* outline-color: rgba(252, 115, 3, 0.3); */
+}
+#chart .bubble .bubble_title{
+    width: 100%;
 }
 #chart .bubble:hover .data_count{
     display: flex;
