@@ -79,7 +79,7 @@ body{
     width: 156px;
     margin-bottom: 100px;
 }
-#wrapper > #nav #page_info h2{
+#wrapper > #nav #page_info h1 {
     font-family: 'Inter';
     font-weight: 700;
     font-size: 48px;
