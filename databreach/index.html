@@ -28,7 +28,6 @@
     <meta name="twitter:url" content="https://report.wallarm.com/databreach/">
 
     <link rel="icon" type="image/png" href="https://static.wallarm.com/webinar/favicon.ico">
-
 </head>
 <body>
     <div id="screen_overlay"></div>
@@ -44,7 +43,7 @@
         <div id="mobile_page_info">
             <h2>Oops.. Sorry!</h2>
             <p>Website working only on the pc version with resolution more than 1024 px.</p>
-            <a href="https://www.wallarm.com/request-demo?utm_source=databreache" id="mobile_nav_btn">Protect your business</a>
+            <a href="https://www.wallarm.com/request-demo?utm_source=report.wallarm.com" id="mobile_nav_btn">Protect your business</a>
         </div>
     </div>
     <div id="wrapper">
@@ -58,7 +57,7 @@
                     <p>About 600 data breach incidents from the period of 2008-2022. We are now adding companies' locations, sizes, and industries. </p>
                 </div>
             </div>
-            <a href="https://www.wallarm.com/request-demo?utm_source=databreache" id="nav_btn">Protect your business</a>
+            <a href="https://www.wallarm.com/request-demo?utm_source=report.wallarm.com" id="nav_btn">Protect your business</a>
         </div>
         <div id="editor"></div>
         <div id="content">
@@ -125,7 +124,7 @@
                         <div id="slide_element_resize_plus"></div>
                         <div id="slide_zone"></div>
                         <div id="year_filter_elements">
-                            <span class="active" onclick="filterChart(2008)">2008</span>
+                            <span onclick="filterChart(2008)">2008</span>
                             <span onclick="filterChart(2009)">2009</span>
                             <span onclick="filterChart(2010)">2010</span>
                             <span onclick="filterChart(2011)">2011</span>
@@ -138,7 +137,7 @@
                             <span onclick="filterChart(2018)">2018</span>
                             <span onclick="filterChart(2019)">2019</span>
                             <span onclick="filterChart(2020)">2020</span>
-                            <span onclick="filterChart(2021)">2021</span>
+                            <span class="active" onclick="filterChart(2021)">2021</span>
                             <span onclick="filterChart(2022)">2022</span>
                             <span>2023</span>
                         </div>
@@ -258,6 +257,16 @@
                 getReportButtonNode.addEventListener('click', makeReport);
             }
         })();
+    </script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-45499521-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-45499521-1');
     </script>
 </body>
 </html>
