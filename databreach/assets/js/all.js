@@ -672,7 +672,7 @@ readTextFile("assets/data/data_3.json", function (text) {
         }, 300);
     }
 
-    document.body.filterChart(2008);
+    document.body.filterChart(2021);
 
     let slide_zone = document.querySelector("#slide_zone"),
         drag_start_position = 0,
