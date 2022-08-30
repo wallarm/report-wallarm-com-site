@@ -139,10 +139,10 @@ readTextFile("assets/data/data_3.json", function (text) {
             industries_f += data_counts[year_for_index.indexOf(ix)]['industry_filtrate']
         }
         data_stolen = data_stolen.replaceAll(' / ', '\n').split("\n").filter(item => item.length)
-        data_stolen = sort_unique(data_stolen.split("\n")).filter(Boolean);
+        data_stolen = sort_unique(data_stolen).filter(Boolean);
 
-        industries_f = industries_f.slice(0, industries_f.length - 2).replaceAll('//', '\n');
-        industries_f = sort_unique(industries_f.split("\n")).filter(Boolean);
+        industries_f = industries_f.replaceAll('//', '\n').split("\n").filter(item => item.length);
+        industries_f = sort_unique(industries_f).filter(Boolean);
 
         let data_stolen_select = document.querySelector("#data_stolen");
 
