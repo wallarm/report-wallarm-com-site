@@ -146,7 +146,7 @@ readTextFile("assets/data/data_3.json", function (text) {
 
         let data_stolen_select = document.querySelector("#data_stolen");
 
-        data_stolen_select.innerHTML = "<option value='any'>Any</option>";
+        data_stolen_select.innerHTML = "<option value='All'>All</option>";
 
         for (let i = 0; i < data_stolen.length; i++) {
             data_stolen_select.innerHTML += "<option value=\"" + data_stolen[i] + "\">" + data_stolen[i] + "</option>";
