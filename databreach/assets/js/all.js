@@ -118,7 +118,7 @@ readTextFile("assets/data/data_3.json", function (text) {
         slide_element_resize_plus = document.querySelector("#slide_element_resize_plus"),
         slider = document.querySelector("#slider");
 
-        
+
     HTMLElement.prototype.filterChart = function (year, y_plus) {
         if (selecyByTitle == "industries") {
             filter_Industries(year, y_plus);
@@ -138,15 +138,15 @@ readTextFile("assets/data/data_3.json", function (text) {
             data_stolen += data_counts[year_for_index.indexOf(ix)]['data_stolen'];
             industries_f += data_counts[year_for_index.indexOf(ix)]['industry_filtrate']
         }
-        data_stolen = data_stolen.slice(0, data_stolen.length - 2).replaceAll(' / ', '\n');
-        data_stolen = sort_unique(data_stolen.split("\n")).filter(Boolean);
+        data_stolen = data_stolen.replaceAll(' / ', '\n').split("\n").filter(item => item.length)
+        data_stolen = sort_unique(data_stolen).filter(Boolean);
 
-        industries_f = industries_f.slice(0, industries_f.length - 2).replaceAll('//', '\n');
-        industries_f = sort_unique(industries_f.split("\n")).filter(Boolean);
+        industries_f = industries_f.replaceAll('//', '\n').split("\n").filter(item => item.length);
+        industries_f = sort_unique(industries_f).filter(Boolean);
 
         let data_stolen_select = document.querySelector("#data_stolen");
 
-        data_stolen_select.innerHTML = "<option value='any'>Any</option>";
+        data_stolen_select.innerHTML = "<option value='All'>All</option>";
 
         for (let i = 0; i < data_stolen.length; i++) {
             data_stolen_select.innerHTML += "<option value=\"" + data_stolen[i] + "\">" + data_stolen[i] + "</option>";
@@ -168,7 +168,7 @@ readTextFile("assets/data/data_3.json", function (text) {
         if(industryFilter){
             select('industry_select', industryFilterName);
         }
-        
+
     }
 
     function filter_Industries(year, y_plus) {
@@ -236,18 +236,18 @@ readTextFile("assets/data/data_3.json", function (text) {
             if(!years_plus || years_plus <= 1){
                 if (otherYear) {
                     industryFilter = false;
-    
+
                     document.querySelector("#data_stolen").options[0].selected = true;
-    
+
                     dataStolenFilter = false;
                     let industries_f = data_counts[this_index]['industry_filtrate'].split("//");
-    
+
                 }
             }
 
             accounts_hacked.style.opacity = 0.3;
             companies_hacked.style.opacity = 0.3;
-            industries.style.opacity = 0.3;  
+            industries.style.opacity = 0.3;
 
             const sorted_by_name = sortedData.sort((a, b) => {
                 return b.PwnCount - a.PwnCount;
@@ -289,7 +289,7 @@ readTextFile("assets/data/data_3.json", function (text) {
             let newFiltrate = [];
 
             for (let i = 0; i < filtrateArray.length; i++) {
-            
+
                 let isFound = newFiltrate.some(element => {
                     if (element.Title.toLowerCase() === filtrateArray[i]['Title'].toLowerCase()) {
                         return true;
@@ -340,7 +340,7 @@ readTextFile("assets/data/data_3.json", function (text) {
                 setTimeout(() => companies_hacked.innerText = ch, 150);
                 setTimeout(() => industries.innerText = ind, 150);
             } else {
-                
+
                 let data_new = [],
                     ah = 0,
                     ch = 0,
@@ -350,9 +350,9 @@ readTextFile("assets/data/data_3.json", function (text) {
                     ah += data_counts[year_for_index.indexOf(ix)]['count_accounts_hacked'];
                     ch += data_counts[year_for_index.indexOf(ix)]['count_companies'];
                 }
-                
+
                 ind = newFiltrate.length;
-                
+
                 if (ah.toString().length < 9) {
                     ah = (ah / 1000000);
                     ah = ah.toString().slice(0, 4) + "M";
@@ -592,7 +592,7 @@ readTextFile("assets/data/data_3.json", function (text) {
 
             let final_echo = "",
                 description;
-            
+
             for (let i = 0; i < filtrateArray.length; i++) {
                 description = filtrateArray[i]['Description'].replace( /(<([^>]+)>)/ig, '').replace(/D/g, '');
                 final_echo += `
@@ -626,7 +626,7 @@ readTextFile("assets/data/data_3.json", function (text) {
                 setTimeout(() => companies_hacked.innerText = ch, 150);
                 setTimeout(() => industries.innerText = ind, 150);
             } else {
-                
+
                 let data_new = [],
                     ah = 0,
                     ch = 0,
@@ -638,9 +638,9 @@ readTextFile("assets/data/data_3.json", function (text) {
                     ch += data_counts[year_for_index.indexOf(ix)]['count_companies'];
                     ind_new_data += data_counts[year_for_index.indexOf(ix)]['industry_filtrate'].replace("under");
                 }
-                
+
                 ind = sort_unique(ind_new_data.replace("undefined", "").split("//")).slice(1).length;
-                
+
                 if (ah.toString().length < 9) {
                     ah = (ah / 1000000);
                     ah = ah.toString().slice(0, 4) + "M";
@@ -665,10 +665,10 @@ readTextFile("assets/data/data_3.json", function (text) {
                     <div>industry</div>
                     <div>Accounts affected</div>
                     <div>breech date</div>
-                </div>` + 
-                final_echo 
+                </div>` +
+                final_echo
             + `</div>`;
-            
+
         }, 300);
     }
 
@@ -680,12 +680,12 @@ readTextFile("assets/data/data_3.json", function (text) {
         resize_func = false;
 
     slide_element_resize_plus.addEventListener("mousedown", function(e){
-        slide_zone.addEventListener("mouseover", resize_element_plus);        
+        slide_zone.addEventListener("mouseover", resize_element_plus);
     });
     slide_element_resize_minus.addEventListener("mousedown", function(e){
         drag_start_position = slide_element.offsetLeft;
         drag_start_width = slide_element.offsetWidth;
-        slide_zone.addEventListener("mouseover", resize_element_minus);        
+        slide_zone.addEventListener("mouseover", resize_element_minus);
     });
 
     function resize_element_plus(e){
@@ -703,7 +703,7 @@ readTextFile("assets/data/data_3.json", function (text) {
                 slide_element.style.width = ( one_slide * (i + 1) - slide_element.offsetLeft ) + 'px';
             }
         }
-        
+
     }
     function resize_element_minus(e){
         let bounds = slide_zone.getBoundingClientRect();
@@ -801,7 +801,7 @@ readTextFile("assets/data/data_3.json", function (text) {
         slide_element.classList.remove("active");
 
         let one_slide = slide_zone.offsetWidth / 30;
-        
+
         if(!years_plus){
             years_plus = 1;
         }
@@ -974,7 +974,7 @@ readTextFile("assets/data/data_3.json", function (text) {
         industryFilterName = '';
         dataStolenFilter = false,
         dataStolenFilterName = '';
-        
+
         if (type == 'Companies') {
             selectBy = data_json;
             selecyByTitle = "companies";
@@ -1020,7 +1020,7 @@ readTextFile("assets/data/data_3.json", function (text) {
 
     data_stolen_select.addEventListener("change", function () {
 
-        if (this.value != 'any') {
+        if (this.value != 'all') {
             dataStolenFilter = true,
             dataStolenFilterName = this.value;
 
@@ -1033,7 +1033,7 @@ readTextFile("assets/data/data_3.json", function (text) {
         }
     });
 
-    let 
+    let
     company_info_modal = document.querySelector('#company_info_modal'),
     company_info_modal_thumb = document.querySelector('#company_info_modal-thumb'),
     company_info_modal_title = document.querySelector('#company_info_modal-title'),
