@@ -44,7 +44,122 @@
         height: 118vh;
     } */
 }
-@media (max-width: 1023px){
+@media (max-width: 1000px){
+    #content_header{
+        zoom: 0.7;
+    }
+    #chart{
+        zoom: 1;
+        height: 500px;
+    }
+    #wrapper{
+        width: 100%;
+        padding-bottom: 50px;
+    }
+    #wrapper > #content{
+        width: initial;
+    }
+    #wrapper > #nav{
+        display: none;
+    }
+    #wrapper{
+        overflow: scroll;
+    }
+    #content #company_info_modal{
+        display: none;
+    }
+    #companies_table{
+        padding-bottom: 0;
+    }
+    #content_toggles button{
+        white-space: nowrap;
+    }
+    #slider #slide_zone{
+        width: calc(100% + 30px);
+        z-index: 9999;
+    }
+    #slider #slide_element_resize_plus, #slider #slide_element_resize_minus{
+        display: none;
+    }
+    #slider #slide_element{
+        z-index: 10000;
+    }
+    #mobile_year_changer{
+        /* display: flex; */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999999;
+        background-color: #000c;
+    }
+    #mobile_year_changer > #mobile_year_change_info{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+    #mobile_year_changer p{
+        font-size: 36px;
+        font-weight: 600;
+        color: #fff;
+        text-align: center;
+    }
+    #mobile_year_changer span{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 3px;
+        margin-left: 3px;
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        border-radius: 50%;
+    }
+    #mobile_year_changer span:nth-child(2) svg{
+        margin-right: 4px;
+    }
+    #mobile_year_changer span:nth-child(3) svg{
+        margin-left: 4px;
+    }
+    #mobile_year_changer span:active{
+        opacity: .6;
+    }
+    #mobile_year_change_btn{
+        margin-top: 30px;
+        padding: 5px 30px;
+        border: 1px solid #FC7303;
+        border-radius: 4px;
+        background-color: transparent;
+        background-color: #FC7303;
+        color: #fff;
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        appearance: none;
+        cursor: pointer;
+        transition: .3s;
+    }
+}
+@media (max-width: 830px){
+    #content_header{
+        zoom: 0.6;
+    }
+}
+@media (max-width: 710px){
+    #content_header{
+        zoom: 0.5;
+    }
+    #chart{
+        zoom: 0.8;
+    }
+}
+@media (max-width: 600px) {
     body{
         overflow: hidden;
     }
@@ -72,10 +187,10 @@
     #mobile_wrapper h2{
         font-family: 'Inter';
         font-weight: 700;
-        font-size: 42px;
-        line-height: 100%;
+        font-size: 26px;
+        line-height: 130%;
         color: #000000;
-        margin-bottom: 16px;
+        margin-bottom: 50px;
     }
     #mobile_wrapper p{
         width: 330px;

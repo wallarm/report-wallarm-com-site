@@ -120,6 +120,9 @@ readTextFile("assets/data/data_3.json", function (text) {
 
 
     HTMLElement.prototype.filterChart = function (year, y_plus) {
+        if(window.innerWidth < 600){
+            return false;
+        }
         if (selecyByTitle == "industries") {
             filter_Industries(year, y_plus);
         } else {
@@ -1070,4 +1073,50 @@ function select(selectId, optionValToSelect){
             break;
         }
     }
+}
+
+HTMLElement.prototype.mobile_change_years = function (){
+    let start_year = parseInt(document.querySelector("#mobile_start_year").innerText),
+        end_year = parseInt(document.querySelector("#mobile_end_year").innerText);
+
+    if(start_year < 2008){
+        start_year = 2008;
+    }else if(start_year > 2022){
+        start_year = 2022;
+    }
+
+    if(end_year < 2009){
+        start_year = 2009;
+    }else if(start_year > 2023){
+        start_year = 2023;
+    }
+
+    mobile_year_changer.style.display = "none";
+    document.body.filterChart(start_year, end_year - start_year);
+
+}
+
+HTMLElement.prototype.change_mobile_year = function (element, operator){
+    let mobile_start_year = document.querySelector('#mobile_start_year'),
+        mobile_end_year = document.querySelector('#mobile_end_year');
+    
+    if(operator == '-'){
+        if(parseInt(mobile_start_year.innerHTML) > 2008 || element == "mobile_end_year"){
+            if(parseInt(mobile_end_year.innerText) > parseInt(mobile_start_year.innerText) || element == "mobile_start_year"){
+                document.querySelector("#" + element).innerHTML = parseInt(document.querySelector("#" + element).innerHTML) - 1;
+            }
+        }
+    }else{
+        if(parseInt(mobile_end_year.innerHTML) < 2023 || element == "mobile_start_year"){
+            if(parseInt(mobile_end_year.innerText) > parseInt(mobile_start_year.innerText) || element == "mobile_end_year"){
+                document.querySelector("#" + element).innerHTML = parseInt(document.querySelector("#" + element).innerHTML) + 1;
+            }
+        }
+    }
+}
+
+if(window.innerWidth < 1000){
+    slide_element.addEventListener("click", function(){
+        mobile_year_changer.style.display = "flex";
+    });
 }

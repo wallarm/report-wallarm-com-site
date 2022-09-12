@@ -560,6 +560,9 @@ body{
     z-index: 9999999999;
     transition: .5s;
 }
+#mobile_year_changer{
+    display: none;
+}
 
 @keyframes fadeOut{
     99%{

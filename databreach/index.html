@@ -31,6 +31,29 @@
 </head>
 <body>
     <div id="screen_overlay"></div>
+    <div id="mobile_year_changer">
+        <div id="mobile_year_change_info">
+            <div>
+                <p id="mobile_start_year">2021</p>
+                <span onclick="change_mobile_year('mobile_start_year', '-')">
+                    <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.6602 1.41357L3.07392 8.99972L10.6602 16.5859" stroke="#212429" stroke-width="3"/></svg>
+                </span>
+                <span onclick="change_mobile_year('mobile_start_year', '+')">
+                    <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.07422 1.41357L8.66045 8.99972L1.07422 16.5859" stroke="#212429" stroke-width="3"/></svg>
+                </span>
+            </div>
+            <div>
+                <p id="mobile_end_year">2022</p>
+                <span onclick="change_mobile_year('mobile_end_year', '-')">
+                    <svg width="10" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.6602 1.41357L3.07392 8.99972L10.6602 16.5859" stroke="#212429" stroke-width="3"/></svg>
+                </span>
+                <span onclick="change_mobile_year('mobile_end_year', '+')">
+                    <svg width="10" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.07422 1.41357L8.66045 8.99972L1.07422 16.5859" stroke="#212429" stroke-width="3"/></svg>
+                </span>
+            </div>
+        </div>
+        <div id="mobile_year_change_btn" onclick="mobile_change_years()">Set up</div>
+    </div>
     <div id="preloader">
         <svg width="47" height="27" viewBox="0 0 47 27" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 8.19663L19.3101 0L19.3101 11.6603L37.1449 4.08982L37.1449 13.445L46.6667 9.40322V16.042L37.1449 20.0838L37.1449 16.5376L19.2915 24.1159V18.6547L0 26.8435V8.19663Z" fill="#FC7303"/>
@@ -41,9 +64,7 @@
             <img src="assets/img/logo.png" alt="">
         </a>
         <div id="mobile_page_info">
-            <h2>Oops.. Sorry!</h2>
-            <p>Website working only on the pc version with resolution more than 1024 px.</p>
-            <p>Turn the phone horizontally to see the contents</p>
+            <h2>Turn the phone horizontally to see the contents</h2>
             <a href="https://www.wallarm.com/request-demo?utm_source=report.wallarm.com" id="mobile_nav_btn">Protect your business</a>
         </div>
     </div>
@@ -167,6 +188,12 @@
     <script src="assets/js/all.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script type="text/javascript">
+        if(window.innerWidth <= 1000){
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener('orientationchange', function() { window.location.reload(); }, false);
+            }
+        }
+
         (function () {
             "use strict";
 
