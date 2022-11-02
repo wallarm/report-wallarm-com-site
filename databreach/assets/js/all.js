@@ -501,7 +501,7 @@ readTextFile("assets/data/data_3.json", function (text) {
         }, 300);
     }
 
-    console.log(data_industries);
+    // console.log(data_industries);
 
     function filter_Companies(year, y_plus) {
         chart.classList.add("active");
@@ -735,8 +735,8 @@ readTextFile("assets/data/data_3.json", function (text) {
 
         let one_slide = slide_zone.offsetWidth / 30;
 
-        console.log(parseInt(slide_element_resize_plus.style.left));
-        console.log(parseInt(one_slide));
+        // console.log(parseInt(slide_element_resize_plus.style.left));
+        // console.log(parseInt(one_slide));
 
         if (parseInt(slide_element_resize_plus.style.left) >= 0 && parseInt(slide_element_resize_plus.style.left) < one_slide) {
             years_plus = 2008 - last_year;
@@ -793,8 +793,8 @@ readTextFile("assets/data/data_3.json", function (text) {
             years_plus = 1;
         }
 
-        console.log(last_year);
-        console.log(years_plus);
+        // console.log(last_year);
+        // console.log(years_plus);
 
         document.body.filterChart(last_year, years_plus);
     }
